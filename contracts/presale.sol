@@ -20,12 +20,12 @@ contract Presale is Ownable {
         token.transfer(msg.sender, amount);
     }
 
-    function withdrawMoney() public onlyOwner {
+    function withdrawMoney() external onlyOwner {
         (bool os, ) = payable(owner()).call{value: address(this).balance}("");
         require(os);
     }
 
-    function withdrawTokens() public onlyOwner {
+    function withdrawTokens() external onlyOwner {
         token.transfer(msg.sender, token.balanceOf(address(this)));
     }
 

@@ -39,17 +39,17 @@ contract MyTokenWithPresale is ERC20, Ownable {
         _mint(msg.sender, amount);
     }
 
-    function mint(address to, uint256 amount) public onlyOwner {
+    function mint(address to, uint256 amount) external onlyOwner {
         uint256 newSupply = totalSupply() + amount * 10**decimals();
         require(newSupply <= finalTotalSupply, "Final supply reached!");
         _mint(to, amount * 10**decimals());
     }
 
-    function setStage(uint8 _stg) public onlyOwner {
+    function setStage(uint8 _stg) external onlyOwner {
         stage = _stg;
     }
 
-    function withdraw() public onlyOwner {
+    function withdraw() external onlyOwner {
         (bool os, ) = payable(owner()).call{value: address(this).balance}("");
         require(os);
     }
