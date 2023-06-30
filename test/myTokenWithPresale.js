@@ -65,6 +65,9 @@ describe("My Token With Presale", function () {
         await myTokenContract.connect(accounts[2]).buyOnPresale({ value: ethers.utils.parseEther('1') });
         await myTokenContract.connect(accounts[3]).buyOnPresale({ value: ethers.utils.parseEther('1') });
 
+        //закрыть пресейл
+        await myTokenContract.connect(accounts[0]).setStage(3);
+
         await myTokenContract.connect(accounts[0]).withdraw();
 
         balanceETHAfter = await provider.getBalance(accounts[0].address);
