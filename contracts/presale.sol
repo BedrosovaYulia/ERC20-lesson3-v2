@@ -16,6 +16,7 @@ contract Presale is Ownable {
     function buyOnPresale() public payable {   
         uint256 amount = (msg.value * 10**18) / presaleCost;
         require(amount > 1, "Too little value!");
+        require(token.balanceOf(address(this))>=amount, "no tokens for sale");
         token.transfer(msg.sender, amount);
     }
 

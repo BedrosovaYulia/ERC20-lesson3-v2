@@ -1,7 +1,7 @@
 require('dotenv').config();
 require("@nomiclabs/hardhat-ethers");
-require("@openzeppelin/hardhat-upgrades");
 require("@nomiclabs/hardhat-etherscan");
+require("@nomicfoundation/hardhat-chai-matchers");
 
 module.exports = {
   solidity: "0.8.15",
