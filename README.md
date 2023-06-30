@@ -9,4 +9,6 @@
 npm install
 npx hardhat compile
 npx hardhat test
+npx hardhat run --network goerli scripts/deploy-token-with-presale.js
+npx hardhat verify --network goerli <адрес контракта>
 ```

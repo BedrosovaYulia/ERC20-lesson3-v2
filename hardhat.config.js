@@ -7,7 +7,7 @@ module.exports = {
   solidity: "0.8.15",
   networks: {
     goerli: {
-      url: 'https://eth-goerli.g.alchemy.com/v2/uVPdQ3wT_m7Bghz3UsPRNriv-sn3IuaJ',
+      url: process.env.RPC_URL,
       accounts: [process.env.PRIVATE_KEY],
     }
   },
