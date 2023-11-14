@@ -1,7 +1,9 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+name: hardhat CI
 
-name: Node.js CI
+env:
+  PRIVATE_KEY: $PRIVATE_KEY
+  ETHERSCAN_API_KEY: $ETHERSCAN_API_KEY
+  RPC_URL: $RPC_URL
 
 on:
   push:
@@ -27,5 +29,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run build --if-present
     - run: npx hardhat test --network hardhat
