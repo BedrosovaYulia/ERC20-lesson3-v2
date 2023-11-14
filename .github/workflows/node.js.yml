@@ -1,9 +1,9 @@
 name: hardhat CI
 
 env:
-  PRIVATE_KEY: ${{env.PRIVATE_KEY}}
-  ETHERSCAN_API_KEY: ${{env.ETHERSCAN_API_KEY}}
-  RPC_URL: ${{env.RPC_URL}}
+  PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
+  ETHERSCAN_API_KEY: ${{secrets.ETHERSCAN_API_KEY}}
+  RPC_URL: ${{secrets.RPC_URL}}
 
 on:
   push:
